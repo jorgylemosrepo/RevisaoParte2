@@ -89,25 +89,33 @@ namespace ValidacaoCliente
 namespace Turma {
     class Turma {
         public static void Main(string[] args){
+
             Dictionary<int, string> Alunos = new Dictionary<int, string>(){
                 {1001, "Ana" },
                 {2002, "Andre" },
                 {3003, "Junior" },
             };
-            Console.WriteLine("Você deseja adicionar algum aluno? s para sim, n para não ");
+
+            Dictionary<int, double> Notas = new Dictionary<int, double>(){
+                {1001, 10.0 },
+                {2002, 7.3 },
+                {3003, 8.5 },
+            };
+
+            Console.WriteLine("Você deseja inserir algum aluno? s/S para sim, n/N para não ");
             string Pergunta = Console.ReadLine();
 
             if (Pergunta.Equals("s") || Pergunta.Equals("S")) {
 
                 Console.WriteLine("Matricula: ");
-                string New_matricula = Console.ReadLine();
+                string Nova_matricula = Console.ReadLine();
 
                 Console.WriteLine("Aluno: ");
-                string New_aluno = Console.ReadLine();
+                string Novo_aluno = Console.ReadLine();
 
-                int matricula = int.Parse(New_matricula);
+                int matricula = int.Parse(Nova_matricula);
 
-                Alunos.Add(matricula, New_aluno);
+                Alunos.Add(matricula, Novo_aluno);
 
             } else if(Pergunta.Equals("n") || Pergunta.Equals("N")){
 
@@ -116,11 +124,15 @@ namespace Turma {
 
                 if(Pergunta.Equals("s") || Pergunta.Equals("S")){
 
-                }else if(Pergunta.Equals("n") || Pergunta.Equals("N"))
-                {
+                    Console.WriteLine("Digite a matricula do aluno: ");
+                    string matricula = Console.ReadLine();
+                    int Rem_matricula = int.Parse(matricula);
 
-                }
+                    Alunos.Remove(Rem_matricula);
+
+                } else if(Pergunta.Equals("n") || Pergunta.Equals("N"))  return;
             }        
+                
         }  
     }
 }
