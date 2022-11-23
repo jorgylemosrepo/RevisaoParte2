@@ -107,15 +107,17 @@ namespace Turma {
 
             if (Pergunta.Equals("s") || Pergunta.Equals("S")) {
 
-                Console.WriteLine("Matricula: ");
-                string Nova_matricula = Console.ReadLine();
+                Console.WriteLine("\nMatricula: ");
+                int matricula = Int32.Parse(Console.ReadLine());
 
-                Console.WriteLine("Aluno: ");
-                string Novo_aluno = Console.ReadLine();
+                if (Alunos.ContainsKey(matricula)){
+                    Console.WriteLine("\nEssa matricula é existente.\n");
+                } else {
+                    Console.WriteLine("Aluno: ");
+                    string Novo_aluno = Console.ReadLine();
 
-                int matricula = int.Parse(Nova_matricula);
-
-                Alunos.Add(matricula, Novo_aluno);
+                    Alunos.Add(matricula, Novo_aluno);
+                }
 
             } else if(Pergunta.Equals("n") || Pergunta.Equals("N")){
 
