@@ -130,19 +130,28 @@ namespace Turma {
                     }
 
                     Console.WriteLine("\nDigite a matricula do aluno: ");
-                    string matricula = Console.ReadLine();
-                    int Rem_matricula = int.Parse(matricula);
+                    int matricula = Int32.Parse(Console.ReadLine());
+             
 
-                    Alunos.Remove(Rem_matricula);
+                    if (Alunos.ContainsKey(matricula)) {
+                        
+                        Alunos.Remove(matricula);
+                        Console.WriteLine($"\nVocê removeu {matricula}\n");
+
+                    }else{
+                        Console.WriteLine("A matricula inserida não existe.\n");
+                    }
+
+                    
 
                 } else if(Pergunta.Equals("n") || Pergunta.Equals("N"))  return;
             }
 
-            foreach (KeyValuePair<int, string> aluno in Alunos)
-            {
-                Console.WriteLine($"{aluno.Key} {aluno.Value}");
+            Console.WriteLine("Alunos: ");
+            foreach (KeyValuePair<int, string> aluno in Alunos) {
+                Console.WriteLine($"Matricula: {aluno.Key} | Aluno:  {aluno.Value}");
             }
-
+                
         }  
     }
 }
