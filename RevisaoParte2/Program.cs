@@ -124,15 +124,25 @@ namespace Turma {
 
                 if(Pergunta.Equals("s") || Pergunta.Equals("S")){
 
-                    Console.WriteLine("Digite a matricula do aluno: ");
+                    Console.WriteLine("\nMatrícula : Aluno");
+                    foreach(KeyValuePair<int, string> aluno in Alunos){
+                        Console.WriteLine($"{aluno.Key} : {aluno.Value}");
+                    }
+
+                    Console.WriteLine("\nDigite a matricula do aluno: ");
                     string matricula = Console.ReadLine();
                     int Rem_matricula = int.Parse(matricula);
 
                     Alunos.Remove(Rem_matricula);
 
                 } else if(Pergunta.Equals("n") || Pergunta.Equals("N"))  return;
-            }        
-                
+            }
+
+            foreach (KeyValuePair<int, string> aluno in Alunos)
+            {
+                Console.WriteLine($"{aluno.Key} {aluno.Value}");
+            }
+
         }  
     }
 }
